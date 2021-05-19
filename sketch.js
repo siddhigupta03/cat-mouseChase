@@ -10,7 +10,8 @@ var cat, catImg;
 var iGround, road;
 var score = 0;
 var bg;
-var mouseCaught, mouseCaughtImg
+var mouseCaught, mouseCaughtImg;
+var gameOverS
 
 function preload() {
     ob1 = loadImage("images/trap.png");
@@ -20,6 +21,7 @@ function preload() {
     bg = loadImage("images/bg.jpg");
     mouseCaughtImg = loadImage("images/mouseCaught.png");
     //road = loadImage("images/road.png");
+    gameOverS = loadSound("gameOverS.mp4");
 }
 
 function setup() {
@@ -97,6 +99,7 @@ function draw() {
         obs();
 
         if(mouse.isTouching(obG)) {
+            gameOverS.play();
             gameState = END;
         }
 }
